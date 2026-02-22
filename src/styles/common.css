@@ -1,0 +1,30 @@
+html,
+body {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 9fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.webgl {
+  border: 1px solid black;
+}
+
+.svg {
+  border: 1px solid black;
+}
+
+.press {
+  grid-column: 1/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
