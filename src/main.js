@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { CubeController } from "./controllers/cube";
 
 const webgl = document.getElementById("webgl");
 const webgl_width = webgl.clientWidth;
@@ -27,13 +28,21 @@ renderer.setSize(webgl_width, webgl_height);
 renderer.setPixelRatio(window.devicePixelRatio);
 webgl.appendChild(renderer.domElement);
 
-let toggled = false;
+//  кубы
+const cube1 = new CubeController(scene, {
+  position: new THREE.Vector3(0.5, 0.5, 1.5),
+  defaultColor: 0x00ff66,
+  size: 0.5,
+});
 
-//анимация
-let animating = false;
-const animationDuration = 0.6;
+const cube2 = new CubeController(scene, {
+  position: new THREE.Vector3(-0.5, 0.5, 1.5),
+  defaultColor: 0x00ff66,
+  size: 0.5,
+});
 
 // нажатие на ссылку
+let toggled = false;
 const toggleBtn = document.getElementById("pressme");
 const svgCircle = document.getElementById("svgCircle");
 
@@ -43,10 +52,16 @@ toggleBtn.addEventListener("click", () => {
   else svgCircle.classList.remove("active");
 });
 
-const clock = new THREE.Clock();
+function onResize() {
+  const width = webgl.clientWidth;
+  const height = webgl.clientHeight;
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener("resize", onResize);
 
 (function animate() {
-  const delta = clock.getDelta();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 })();
