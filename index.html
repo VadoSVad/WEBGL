@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/styles/common.css" rel="stylesheet" />
+    <link href="./src/styles/controls.css" rel="stylesheet" />
+    <link href="./src/styles/elements.css" rel="stylesheet" />
+    <title>WEBGL</title>
+  </head>
+  <body>
+    <div class="webgl" id="webgl"></div>
+    <div class="svg">
+      <svg viewBox="0 0 200 200">
+        <circle
+          class="svg-circle"
+          id="svgCircle"
+          cx="100"
+          cy="100"
+          r="20"
+          fill="#00ff66"
+        />
+      </svg>
+    </div>
+    <div class="press">
+      <a id="pressme" class="btn">НАЖАТЬ</a>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
